@@ -37,13 +37,13 @@
     </ul>
 
     <script>
-        // Função para adicionar um novo registro
+        
         function adicionarRegistro() {
             const como = document.getElementById("como").value;
             const quando = document.getElementById("quando").value;
             const quantidade = parseInt(document.getElementById("quantidade").value);
 
-            // Verifica se os campos foram preenchidos
+           
             if (!como || !quando || isNaN(quantidade)) {
                 alert("Por favor, preencha todos os campos corretamente.");
                 return;
@@ -57,7 +57,7 @@
             exibirRegistros();
         }
 
-        // Função para exibir os registros na página
+        
         function exibirRegistros() {
             const registros = JSON.parse(localStorage.getItem("registros")) || [];
             const lista = document.getElementById("registros");
@@ -69,7 +69,7 @@
             });
         }
 
-        // Função para editar um registro
+        
         function editarRegistro(index) {
             const registros = JSON.parse(localStorage.getItem("registros")) || [];
             const registro = registros[index];
@@ -81,7 +81,7 @@
             exibirRegistros();
         }
 
-        // Função para apagar um registro
+        
         function apagarRegistro(index) {
             const registros = JSON.parse(localStorage.getItem("registros")) || [];
             registros.splice(index, 1);
@@ -89,7 +89,7 @@
             exibirRegistros();
         }
 
-        // Inicializa a página exibindo os registros existentes
+        
         exibirRegistros();
     </script>
 </body>
