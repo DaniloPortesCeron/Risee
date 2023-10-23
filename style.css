@@ -1,0 +1,30 @@
+.barraLateral {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: 2px solid #2980b9;
+    border-radius: 5px;
+}
+
+.barraLateral a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos para os ícones */
+.fa {
+    margin-right: 5px;
+}
+
+/* Estilos para os botões */
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}

@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <script>
+            
+            function teste1() {  //É tipo o void, uma função que espera ser chamada para ativar
+                console.log("Chamando a função teste");
+            }
+
+
+            function teste2(nome,idade) {
+                console.log("O nome passado é : "+ nome);
+                console.log("A idade é:"+idade);
+            }
+
+            teste2("joão",27);
+            teste2("guilherme",30);
+
+            function pegarnome() 
+            {
+                return "Guilherme";
+            }
+
+            var nome = pegarnome();
+            console.log(nome);
+
+            function pegarnome1(parametro) 
+            {
+                if(oarametro ==1)
+                {
+                return "Guilherme";
+                } else{
+                    return"outronome";
+                }
+            }
+        </script>
+    </body>
+    </html>

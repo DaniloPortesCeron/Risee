@@ -1,0 +1,105 @@
+<html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet"/>
+        <title>Exposição de gastos</title>
+        <h1> Gastos Detalhados</h1>
+    </head>
+
+<body>
+
+    <div class = "barraLateral">
+            
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <i class="fa-solid fa-coins"></i>  <a target="_blank" href="https://cursos.dankicode.com">Controle de Gastos</a>
+        <br> <i class="fa-solid fa-money-bill"></i> <a target="_blank" href="https://cursos.dankicode.com">Adicionar Gastos</a></br>
+        <i class="fa-solid fa-table"></i> <a target="_blank" href="https://cursos.dankicode.com">Gastos Detalhados</a>
+        <br><i class="fa-solid fa-plus"></i> <a target="_blank" href="https://cursos.dankicode.com">Adicionar Recursos</a></br>
+        <i class="fa-solid fa-person"></i> <a target="_blank" href="https://cursos.dankicode.com">Tela de usuário</a>
+        </div>
+
+    <h2>Adicionar Gastos</h2>
+    <form id="form">
+        <label for="como">Como:</label>
+        <input type="text" id="como" required>
+        <label for="quando">Quando:</label>
+        <input type="date" id="quando" required>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" required>
+        <button type="button" onclick="adicionarRegistro()">Adicionar</button>
+    </form>
+
+    <h2>Registros</h2>
+    <ul id="registros">
+    </ul>
+
+    <script>
+        // Função para adicionar um novo registro
+        function adicionarRegistro() {
+            const como = document.getElementById("como").value;
+            const quando = document.getElementById("quando").value;
+            const quantidade = parseInt(document.getElementById("quantidade").value);
+
+            // Verifica se os campos foram preenchidos
+            if (!como || !quando || isNaN(quantidade)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            const registro = { como, quando, quantidade };
+            const registros = JSON.parse(localStorage.getItem("registros")) || [];
+            registros.push(registro);
+            localStorage.setItem("registros", JSON.stringify(registros));
+            document.getElementById("form").reset();
+            exibirRegistros();
+        }
+
+        // Função para exibir os registros na página
+        function exibirRegistros() {
+            const registros = JSON.parse(localStorage.getItem("registros")) || [];
+            const lista = document.getElementById("registros");
+            lista.innerHTML = "";
+            registros.forEach((registro, index) => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `Como: ${registro.como}, Quando: ${registro.quando}, Quantidade: ${registro.quantidade} <button onclick="editarRegistro(${index})">Editar</button> <button onclick="apagarRegistro(${index})">Apagar</button>`;
+                lista.appendChild(listItem);
+            });
+        }
+
+        // Função para editar um registro
+        function editarRegistro(index) {
+            const registros = JSON.parse(localStorage.getItem("registros")) || [];
+            const registro = registros[index];
+            document.getElementById("como").value = registro.como;
+            document.getElementById("quando").value = registro.quando;
+            document.getElementById("quantidade").value = registro.quantidade;
+            registros.splice(index, 1);
+            localStorage.setItem("registros", JSON.stringify(registros));
+            exibirRegistros();
+        }
+
+        // Função para apagar um registro
+        function apagarRegistro(index) {
+            const registros = JSON.parse(localStorage.getItem("registros")) || [];
+            registros.splice(index, 1);
+            localStorage.setItem("registros", JSON.stringify(registros));
+            exibirRegistros();
+        }
+
+        // Inicializa a página exibindo os registros existentes
+        exibirRegistros();
+    </script>
+</body>
+
+<footer>
+
+    <div class = "barraLateral">
+    <br><i class="fa-solid fa-question"></i> <a target="_blank" href="https://cursos.dankicode.com">Ajuda</a></br>
+    <i class="fa-solid fa-gear"></i> <a target="_blank" href="https://cursos.dankicode.com">Configurações</a>
+  </div>
+
+  </footer>
+</html>

@@ -1,0 +1,57 @@
+<html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exposição de gastos</title>
+        <h1> Gastos</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <div class="tabelagastos"> 
+            <style>
+                table {
+                  font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+                
+                td, th {
+                  border: 1px solid #dddddd;
+                  text-align: left;
+                  padding: 15px;
+                }
+                
+                tr:nth-child(even) {
+                  background-color: #dfd9d9;
+                }
+                </style>
+          <table>
+             <thead>
+              <td> Gasto 1 </th>
+              <td> como </th>
+              <td> $1000,00 </th>
+            </headr>
+            <tr>
+              <td> Gasto 2 </td>
+              <td> Como  </td>
+              <td> $2000,00 </td>
+            </tr>
+            <tr>
+              <td> Gasto 3 </td>
+              <td> como  </td>
+              <td> $3000,00 </td>
+            </tr>
+            <tr>
+                <td> Gasto 4 </th>
+                <td> como </th>
+                <td> $4000,00 </th>
+            </tr>
+          </table>
+
+          <div></div>
+    
+    </body>
+    </html>
+</html>
